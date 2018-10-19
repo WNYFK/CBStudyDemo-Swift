@@ -23,6 +23,9 @@
 		3700CC40217829AA00F9C478 /* SignalProducerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3700CC3F217829AA00F9C478 /* SignalProducerTest.swift */; };
 		3753316B2179AE04001B6B0E /* SignalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753316A2179AE04001B6B0E /* SignalTest.swift */; };
 		3753316D2179B6D9001B6B0E /* PropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753316C2179B6D9001B6B0E /* PropertyTest.swift */; };
+		3753316F2179D628001B6B0E /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753316E2179D628001B6B0E /* RX.swift */; };
+		375331712179D65D001B6B0E /* 2_AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375331702179D65D001B6B0E /* 2_AddTwoNumbers.swift */; };
+		375331732179D68C001B6B0E /* 4_MedianOfTwoSortedArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375331722179D68C001B6B0E /* 4_MedianOfTwoSortedArrays.swift */; };
 		E4AC21E00BA9374B191D1479 /* Pods_CBStudyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD45E0EDC279EDA067240FFF /* Pods_CBStudyDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		3700CC492178353900F9C478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3753316A2179AE04001B6B0E /* SignalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTest.swift; sourceTree = "<group>"; };
 		3753316C2179B6D9001B6B0E /* PropertyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTest.swift; sourceTree = "<group>"; };
+		3753316E2179D628001B6B0E /* RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
+		375331702179D65D001B6B0E /* 2_AddTwoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_AddTwoNumbers.swift; sourceTree = "<group>"; };
+		375331722179D68C001B6B0E /* 4_MedianOfTwoSortedArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_MedianOfTwoSortedArrays.swift; sourceTree = "<group>"; };
 		AC6F2B17EC135275769BD571 /* Pods-CBStudyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBStudyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBStudyDemo/Pods-CBStudyDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AD45E0EDC279EDA067240FFF /* Pods_CBStudyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBStudyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +142,7 @@
 		3700CC2D2176F8FC00F9C478 /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
+				375331722179D68C001B6B0E /* 4_MedianOfTwoSortedArrays.swift */,
 			);
 			path = "困难";
 			sourceTree = "<group>";
@@ -143,6 +150,7 @@
 		3700CC2E2176F8FC00F9C478 /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
+				375331702179D65D001B6B0E /* 2_AddTwoNumbers.swift */,
 			);
 			path = "中等";
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 		3700CC3B217828A400F9C478 /* RXSwift */ = {
 			isa = PBXGroup;
 			children = (
+				3753316E2179D628001B6B0E /* RX.swift */,
 			);
 			path = RXSwift;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3700CC3E2178292E00F9C478 /* GlobalFunc.swift in Sources */,
+				3753316F2179D628001B6B0E /* RX.swift in Sources */,
 				3700CC40217829AA00F9C478 /* SignalProducerTest.swift in Sources */,
 				3700CC172175E16200F9C478 /* ViewController.swift in Sources */,
 				3700CC2F2176F8FC00F9C478 /* 13_RomanToInteger.swift in Sources */,
@@ -319,7 +329,9 @@
 				3700CC152175E16200F9C478 /* AppDelegate.swift in Sources */,
 				3700CC302176F8FC00F9C478 /* 20_ValidParentheses.swift in Sources */,
 				3700CC322176F9AD00F9C478 /* 1_TwoSum.swift in Sources */,
+				375331732179D68C001B6B0E /* 4_MedianOfTwoSortedArrays.swift in Sources */,
 				3700CC3421770F3600F9C478 /* 9_PalindromeNumber.swift in Sources */,
+				375331712179D65D001B6B0E /* 2_AddTwoNumbers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
