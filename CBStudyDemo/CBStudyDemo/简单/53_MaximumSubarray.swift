@@ -46,4 +46,18 @@ class MaximumSubarray {
         }
         return sum
     }
+    
+    func solve(_ nums: [Int]) -> Int {
+        guard nums.count > 1 else { return nums.first ?? 0 }
+        var left = 0
+        var right = nums.count - 1
+        
+        return 0
+    }
 }
+
+
+
+
+
+
