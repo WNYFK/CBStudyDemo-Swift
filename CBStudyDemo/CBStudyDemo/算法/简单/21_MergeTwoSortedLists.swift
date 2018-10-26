@@ -10,15 +10,6 @@ import Foundation
 
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/description/
 
-public class ListNode {
-    public var val: Int
-    public var next: ListNode?
-    public init(_ val: Int) {
-        self.val = val
-        self.next = nil
-    }
-}
-
 class MergeTwoSortedLists {
     func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var p1 = l1

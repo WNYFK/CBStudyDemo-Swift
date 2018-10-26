@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        print(RomanToInteger().romanToInt("IIV"))
+        SignalProducerTest.testTimer()
         
 //        print(ValidParentheses().isValid("[]"))
 //        print(ValidParentheses().isValid("[]()"))
@@ -23,7 +24,10 @@ class ViewController: UIViewController {
 //        print(PalindromeNumber().isPalindrome(121))
 //        SignalProducerTest.testAll()
 //        SignalTest.testAll()
-        PropertyTest.testAll()
+//        PropertyTest.testAll()
+//        AddTwoNumbers().addTwoNumbers(ListNode.ListNoe([8,9,9]), ListNode.ListNoe([2]))
+//        print(NonDecreasingArray().checkPossibility2([3,4,2,3]))
+//        Labyrinth().allPath([[1, 1, 1, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 1, 1, 1]], start: (0, 0), end: (3, 3))
     }
 
     override func didReceiveMemoryWarning() {

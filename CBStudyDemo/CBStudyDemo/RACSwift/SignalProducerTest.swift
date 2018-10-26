@@ -11,6 +11,16 @@ import Result
 import ReactiveSwift
 
 class SignalProducerTest {
+    
+    static func testTimer() {
+        let timerDisposable = SignalProducer.timer(interval: .seconds(1), on: QueueScheduler.main).startWithValues { _ in
+            print("aaaaa")
+        }
+        DispatchQueue.main.async {
+//            timerDisposable.dispose()
+        }
+    }
+    
     static func testAll() {
         debugExample("Subscription") {
             let producer = SignalProducer<Int, NoError>({ (observer, _) in
