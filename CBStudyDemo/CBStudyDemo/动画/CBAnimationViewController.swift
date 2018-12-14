@@ -6,10 +6,33 @@
 //  Copyright © 2018 ChenBin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class CBAnimationViewController: CBBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        let img = UIImage(named: "icon_event_star_big")
+
+        let layer1 = CBLayer(frame: CGRect(origin: CGPoint(x: 70, y: 80), size: CGSize(width: 30, height: 30)), bgColor: .red)
+        layer1.contents = img?.cgImage
+        layer1.contentsGravity = kCAGravityResizeAspect
+        layer1.contentsRect = CGRect(x: 0, y: 0, width: 0.5, height: 0.5)
+        
+        let layer2 = CBLayer(frame: CGRect(origin: CGPoint(x: layer1.cb.right, y: 80), size: CGSize(width: 30, height: 30)), bgColor: .red)
+        layer2.contents = img?.cgImage
+        layer2.contentsGravity = kCAGravityResizeAspect
+        layer2.contentsRect = CGRect(x: 0.5, y: 0, width: 0.5, height: 0.5)
+        
+        let layer3 = CBLayer(frame: CGRect(origin: CGPoint(x: layer1.cb.left, y: layer1.cb.bottom), size: CGSize(width: 30, height: 30)), bgColor: .red)
+        layer3.contents = img?.cgImage
+        layer3.contentsGravity = kCAGravityResizeAspect
+        layer3.contentsRect = CGRect(x: 0, y: 0.5, width: 0.5, height: 0.5)
+        
+        let layer4 = CBLayer(frame: CGRect(origin: CGPoint(x: layer2.cb.left, y: layer2.cb.bottom), size: CGSize(width: 30, height: 30)), bgColor: .red)
+        layer4.contents = img?.cgImage
+        layer4.contentsGravity = kCAGravityResizeAspect
+        layer4.contentsRect = CGRect(x: 0.5, y: 0.5, width: 0.5, height: 0.5)
+        
+        view.layer.cb.addSubLayers(layers: [layer1, layer2, layer3, layer4])
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CBView.swift
+//  CBLayer.swift
 //  CBStudyDemo
 //
 //  Created by ChenBin on 2018/12/14.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-public class CBView: UIView {
+public class CBLayer: CALayer {
     init(frame: CGRect, bgColor: UIColor) {
-        super.init(frame: frame)
-        backgroundColor = bgColor
+        super.init()
+        backgroundColor = bgColor.cgColor
+        self.frame = frame
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -19,7 +20,7 @@ public class CBView: UIView {
     }
 }
 
-extension CBExtensions where Base: UIView {
+extension CBExtensions where Base: CALayer {
     var top: CGFloat {
         get { return base.frame.origin.y }
         set {
@@ -57,7 +58,7 @@ extension CBExtensions where Base: UIView {
         }
     }
     
-    func addSubviews(views: [UIView]) {
-        views.forEach(base.addSubview)
+    func addSubLayers(layers: [CALayer]) {
+        layers.forEach(base.addSublayer)
     }
 }

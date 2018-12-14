@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CBExtensionsProvider: class { }
+public protocol CBExtensionsProvider: class {}
 
 extension CBExtensionsProvider {
     public static var cb: CBStaticExtensions<Self> {

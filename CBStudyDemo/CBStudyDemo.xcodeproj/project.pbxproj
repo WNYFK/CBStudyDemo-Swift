@@ -39,6 +39,8 @@
 		376EA51721C39F21003019CE /* CBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376EA51621C39F21003019CE /* CBHomeViewController.swift */; };
 		376EA51921C3A379003019CE /* CBAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376EA51821C3A379003019CE /* CBAnimationViewController.swift */; };
 		376EA51B21C3A3EA003019CE /* AnyObject+CurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376EA51A21C3A3EA003019CE /* AnyObject+CurViewController.swift */; };
+		376EA51D21C3B4B8003019CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376EA51C21C3B4B8003019CE /* QuartzCore.framework */; };
+		376EA51F21C3B9E6003019CE /* CBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376EA51E21C3B9E6003019CE /* CBLayer.swift */; };
 		E4AC21E00BA9374B191D1479 /* Pods_CBStudyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD45E0EDC279EDA067240FFF /* Pods_CBStudyDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		376EA51621C39F21003019CE /* CBHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBHomeViewController.swift; sourceTree = "<group>"; };
 		376EA51821C3A379003019CE /* CBAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBAnimationViewController.swift; sourceTree = "<group>"; };
 		376EA51A21C3A3EA003019CE /* AnyObject+CurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyObject+CurViewController.swift"; sourceTree = "<group>"; };
+		376EA51C21C3B4B8003019CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		376EA51E21C3B9E6003019CE /* CBLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBLayer.swift; sourceTree = "<group>"; };
 		AC6F2B17EC135275769BD571 /* Pods-CBStudyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBStudyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBStudyDemo/Pods-CBStudyDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AD45E0EDC279EDA067240FFF /* Pods_CBStudyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBStudyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376EA51D21C3B4B8003019CE /* QuartzCore.framework in Frameworks */,
 				E4AC21E00BA9374B191D1479 /* Pods_CBStudyDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +113,7 @@
 		2C6E5804C889BD65CC22DD92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				376EA51C21C3B4B8003019CE /* QuartzCore.framework */,
 				AD45E0EDC279EDA067240FFF /* Pods_CBStudyDemo.framework */,
 			);
 			name = Frameworks;
@@ -244,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				376EA50921C380C0003019CE /* CBView.swift */,
+				376EA51E21C3B9E6003019CE /* CBLayer.swift */,
 				376EA50B21C381B9003019CE /* CBBaseViewController.swift */,
 				376EA50D21C381C6003019CE /* CBTableViewController.swift */,
 				376EA51421C3892D003019CE /* CBTableViewItem.swift */,
@@ -395,6 +402,7 @@
 				3700CC40217829AA00F9C478 /* SignalProducerTest.swift in Sources */,
 				376701F22181AA2F0049A2CF /* 2_AddTwoNumbers.swift in Sources */,
 				376701ED2181AA2F0049A2CF /* 20_ValidParentheses.swift in Sources */,
+				376EA51F21C3B9E6003019CE /* CBLayer.swift in Sources */,
 				3700CC172175E16200F9C478 /* ViewController.swift in Sources */,
 				376EA51B21C3A3EA003019CE /* AnyObject+CurViewController.swift in Sources */,
 				376701EF2181AA2F0049A2CF /* 13_RomanToInteger.swift in Sources */,
