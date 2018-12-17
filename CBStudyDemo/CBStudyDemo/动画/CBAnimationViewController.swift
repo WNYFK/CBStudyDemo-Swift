@@ -33,6 +33,22 @@ final class CBAnimationViewController: CBBaseViewController {
         layer4.contentsGravity = kCAGravityResizeAspect
         layer4.contentsRect = CGRect(x: 0.5, y: 0.5, width: 0.5, height: 0.5)
         
-        view.layer.cb.addSubLayers(layers: [layer1, layer2, layer3, layer4])
+        let shadowLayer = CBLayer(frame: CGRect(x: layer4.cb.right, y: layer4.cb.bottom + 10, width: 100, height: 100), bgColor: .clear)
+        shadowLayer.shadowOpacity = 0.5
+        shadowLayer.shadowOffset = CGSize(width: 3, height: 3)
+        shadowLayer.cornerRadius = 20
+        
+        let lalyer5 = CBLayer(frame: CGRect(x: 0, y: 0, width: 100, height: 100), bgColor: .red)
+        lalyer5.cornerRadius = 20
+        lalyer5.masksToBounds = true
+        shadowLayer.addSublayer(lalyer5)
+        view.layer.cb.addSubLayers(layers: [layer1, layer2, layer3, layer4, shadowLayer])
+        
+        let layer51 = CBLayer(frame: CGRect(x: -20, y: -20, width: 60, height: 60), bgColor: .green)
+        lalyer5.addSublayer(layer51)
+        
+        let circlePath = CGMutablePath()
+        circlePath.addEllipse(in: shadowLayer.bounds)
+        shadowLayer.shadowPath = circlePath
     }
 }
