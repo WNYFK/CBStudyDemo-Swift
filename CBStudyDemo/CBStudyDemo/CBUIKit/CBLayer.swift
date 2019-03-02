@@ -8,11 +8,15 @@
 
 import UIKit
 
-public class CBLayer: CALayer {
+class CBLayer: CALayer {
     init(frame: CGRect, bgColor: UIColor) {
         super.init()
         backgroundColor = bgColor.cgColor
         self.frame = frame
+    }
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
     }
     
     required init?(coder aDecoder: NSCoder) {
