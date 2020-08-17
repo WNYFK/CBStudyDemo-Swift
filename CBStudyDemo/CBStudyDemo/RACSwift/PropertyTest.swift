@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 import ReactiveSwift
 
 class PropertyTest {
@@ -28,28 +27,28 @@ class PropertyTest {
             })
             mutableProperty.value = 3
         }
-        debugExample("Binding from SignalProducer") {
-            let producer = SignalProducer<Int, NoError>({ (observer, _) in
-                observer.send(value: 1)
-                observer.send(value: 2)
-                observer.sendCompleted()
-            })
-            let property = MutableProperty(0)
-            property.producer.startWithValues({ (value) in
-                print("Property received \(value)")
-            })
-            property <~ producer
-        }
-        debugExample("Binding form Signal") {
-            let (signal, observer) = Signal<Int, NoError>.pipe()
-            let property = MutableProperty(0)
-            property.producer.startWithValues({ (value) in
-                print("Property received \(value)")
-            })
-            property <~ signal
-            observer.send(value: 1)
-            observer.send(value: 2)
-        }
+//        debugExample("Binding from SignalProducer") {
+//            let producer = SignalProducer<Int, NoError>({ (observer, _) in
+//                observer.send(value: 1)
+//                observer.send(value: 2)
+//                observer.sendCompleted()
+//            })
+//            let property = MutableProperty(0)
+//            property.producer.startWithValues({ (value) in
+//                print("Property received \(value)")
+//            })
+//            property <~ producer
+//        }
+//        debugExample("Binding form Signal") {
+//            let (signal, observer) = Signal<Int, NoError>.pipe()
+//            let property = MutableProperty(0)
+//            property.producer.startWithValues({ (value) in
+//                print("Property received \(value)")
+//            })
+//            property <~ signal
+//            observer.send(value: 1)
+//            observer.send(value: 2)
+//        }
         debugExample("Binding other property") {
             let property = MutableProperty(0)
             property.producer.startWithValues({ (value) in

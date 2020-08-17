@@ -14,8 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        print(RomanToInteger().romanToInt("IIV"))
-        SignalProducerTest.testTimer()
-        
+//        SignalProducerTest.testTimer()
+//        CBQuickSort.example()
+//        ListNodeReversal.reverse()
+//        TreeNodeComAncestor.test()
+//        StackQueue.test()
+//        Sort.test()
+//        DynamicProgramming.test()
+        BookCode.test()
 //        print(ValidParentheses().isValid("[]"))
 //        print(ValidParentheses().isValid("[]()"))
 //        print(ValidParentheses().isValid("[}()"))

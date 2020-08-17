@@ -12,25 +12,28 @@ import SnapKit
 struct CBTableCellItem: CBTableViewItemProtocol {
     var cellType: CBCellType.Type
     
-    let title: String
+    var title: String
     var action: CBEmptyClosure?
     
     init(title: String, cellType: CBCellType.Type = CBTableViewCell.self, action: CBEmptyClosure?) {
-        self.title = title
+        var tmpTitle = title
         self.cellType = cellType
+        self.title = tmpTitle
         self.action = action
     }
 }
 
 final class CBHomeViewController: CBTableViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let animationItem = CBTableCellItem(title: "动画", action: push(viewController: CBAnimationViewController.self))
+        let animationItem = CBTableCellItem(title: "动画", action: push(viewController: CBHomeAnimationViewController.self))
         let racSwiftItem = CBTableCellItem(title: "RACSwift") {
-            
         }
-        sections = [CBSectionItem<String>(elements: [animationItem, racSwiftItem])]
+        let rxSwiftItem = CBTableCellItem(title: "RX", action: push(viewController: CBRXViewController1.self))
+        let layoutItem = CBTableCellItem(title: "UIView渲染机制", action: push(viewController: CBViewTheoryViewController.self))
+        let handyJsonItem = CBTableCellItem(title: "HandyJSON", action: push(viewController: CBHandyJsonViewController.self))
+        sections = [CBSectionItem<String>(elements: [animationItem, racSwiftItem, layoutItem, rxSwiftItem, handyJsonItem])]
     }
 }
 

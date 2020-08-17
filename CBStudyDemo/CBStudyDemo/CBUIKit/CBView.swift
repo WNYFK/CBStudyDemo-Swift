@@ -17,6 +17,16 @@ public class CBView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        let views = subviews
+        print(views)
+    }
+    
+    public override func draw(_ rect: CGRect) {
+        
+    }
 }
 
 extension CBExtensions where Base: UIView {
@@ -57,7 +67,13 @@ extension CBExtensions where Base: UIView {
         }
     }
     
+    func addSubviews(views: UIView...) {
+        views.forEach(base.addSubview)
+    }
+    
     func addSubviews(views: [UIView]) {
         views.forEach(base.addSubview)
     }
+
+
 }

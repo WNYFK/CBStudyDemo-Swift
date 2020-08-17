@@ -11,8 +11,9 @@ import ReactiveSwift
 import ReactiveCocoa
 import QuartzCore
 
+// https://github.com/AlfredTheBest/iOS_core_animation
 final class CBAnimationViewController: CBBaseViewController {
-    private let colorLayer = CBLayer(frame: CGRect(x: 100, y: 200, width: 100, height: 100), bgColor: .red)
+    private let colorLayer = CBLayer(frame: CGRect(x: 10, y: 200, width: 100, height: 100), bgColor: .red)
     private lazy var changeBtn: UIButton = {
         let changeColorBtn = UIButton(type: .custom)
         changeColorBtn.setTitle("改变颜色", for: .normal)
@@ -26,15 +27,163 @@ final class CBAnimationViewController: CBBaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPart7_1()
-    
+        setupPart9_2()
+    }
+}
+
+// 基于定时器的动画
+extension CBAnimationViewController {
+    fileprivate func setupPart10_1() {
         
     }
 }
 
+// 缓存
+extension CBAnimationViewController {
+    fileprivate func setupPart9_2() {
+        let layerView = CBView(frame: CGRect(x: 10, y: 200, width: 200, height: 200), bgColor: .green)
+        view.addSubview(layerView)
+        
+        let function = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let point1 = UnsafeMutablePointer<Float>.allocate(capacity: 2)
+        let point2 = UnsafeMutablePointer<Float>.allocate(capacity: 2)
+        function.getControlPoint(at: 1, values:point1)
+        function.getControlPoint(at: 2, values: point2)
+        
+        let controlPoint1: CGPoint = CGPoint(x: point1[0].cgFloat, y: point1[1].cgFloat)
+        let controlPoint2: CGPoint = CGPoint(x: point2[0].cgFloat, y: point2[1].cgFloat)
+        let path = UIBezierPath()
+        path.move(to: .zero)
+        path.addCurve(to: CGPoint(x: 1, y: 1), controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+        path.apply(CGAffineTransform(scaleX: 200, y: 200))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = 4
+        shapeLayer.path = path.cgPath
+        layerView.layer.addSublayer(shapeLayer)
+        layerView.layer.isGeometryFlipped = true
+    }
+    
+    fileprivate func setupPart9_1() {
+        view.layer.addSublayer(colorLayer)
+        changeBtn.reactive.controlEvents(.touchUpInside).observeValues { _ in
+            let animation = CAKeyframeAnimation(keyPath: "backgroundColor")
+            animation.duration = 2
+            animation.values = [UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+            let fn1 = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            let fn2 = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            let fn3 = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            animation.timingFunctions = [fn1, fn2, fn3]
+            self.colorLayer.add(animation, forKey: nil)
+        }
+    }
+    
+    fileprivate func setupPart9() {
+        view.layer.addSublayer(colorLayer)
+    }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let position: CGPoint = touches.first?.location(in: view) ?? .zero
+//        CATransaction.begin()
+//        CATransaction.setAnimationDuration(1.0)
+//        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+//        colorLayer.position = position
+//        CATransaction.commit()
+//    }
+}
+
+// 图层时间
+extension CBAnimationViewController {
+    fileprivate func setupPart8() {
+        changeBtn.reactive.controlEvents(.touchUpInside).observeValues { _ in
+            self.colorLayer.timeOffset += 0.1
+        }
+        
+        
+        let containerView = CBView(frame: CGRect(x: 10, y: 150, width: 300, height: 300), bgColor: .green)
+        view.addSubview(containerView)
+        colorLayer.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        containerView.layer.addSublayer(colorLayer)
+        
+        var perspective = CATransform3DIdentity
+        perspective.m34 = -1.0 / 500.0
+        containerView.layer.sublayerTransform = perspective
+        colorLayer.speed = 0
+        
+        let animation = CABasicAnimation(keyPath: "transform.rotation.y")
+        animation.toValue = Double.pi / 2
+        animation.duration = 1
+        colorLayer.add(animation, forKey: nil)
+        colorLayer.timeOffset = 0.5
+    }
+    
+    @objc func panHandle(pan: UIPanGestureRecognizer) {
+        var x: Double = Double(pan.translation(in: view).x)
+        x /= 200.0
+        var timeOffset = colorLayer.timeOffset
+        timeOffset = min(0.999, max(0.0, timeOffset - x))
+        colorLayer.timeOffset = timeOffset
+        pan.setTranslation(.zero, in: view)
+    }
+}
+
 extension CBAnimationViewController: CAAnimationDelegate {
+    fileprivate func setupPart7_4() {   //过渡动画
+        var index: Int = 0
+        let imgs: [UIImage?] = [UIImage(named: "icon_back_to_top"), UIImage(named: "icon_cinema_noPermission"), UIImage(named: "icon_event_star_big"), UIImage(named: "icon_event_starHalf_big")]
+        let imgView = UIImageView(frame: CGRect(x: changeBtn.cb.left, y: changeBtn.cb.bottom + 100, width: 100, height: 100))
+        imgView.image = imgs[0]
+        view.addSubview(imgView)
+
+        changeBtn.reactive.controlEvents(.touchUpInside).observeValues { _ in
+            let transition = CATransition()
+            transition.type = kCATransitionFade
+            transition.subtype = kCATransitionFromRight
+            transition.duration = 0.6
+            imgView.layer.add(transition, forKey: "aaa")
+            index = (index + 1) % imgs.count
+            imgView.image = imgs[index]
+        }
+    }
+    
+    fileprivate func setupPart7_3() {
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 0, y: 150))
+        bezierPath.addCurve(to: CGPoint(x: 300, y: 150), controlPoint1: CGPoint(x: 75, y: 0), controlPoint2: CGPoint(x: 225, y: 300))
+        let pathLayer = CAShapeLayer()
+        pathLayer.path = bezierPath.cgPath
+        pathLayer.fillColor = UIColor.clear.cgColor
+        pathLayer.strokeColor = UIColor.red.cgColor
+        pathLayer.lineWidth = 3
+        view.layer.addSublayer(pathLayer)
+        view.layer.addSublayer(colorLayer)
+        
+        let animation1 = CAKeyframeAnimation(keyPath: "position")
+        animation1.path = bezierPath.cgPath
+        animation1.rotationMode = kCAAnimationRotateAuto
+        
+        let animation2 = CABasicAnimation(keyPath: "backgroundColor")
+        animation2.toValue = UIColor.green.cgColor
+        
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [animation1, animation2]
+        groupAnimation.duration = 2
+        colorLayer.add(groupAnimation, forKey: nil)
+    }
+    
     fileprivate func setupPart7_2() {
         let shipLayer = CBLayer(frame: CGRect(x: 100, y: 200, width: 120, height: 120), bgColor: .clear)
+        shipLayer.contents = UIImage(named: "icon_cinema_noPermission")?.cgImage
+        view.layer.addSublayer(shipLayer)
+        
+        changeBtn.reactive.controlEvents(.touchUpInside).observeValues { _ in
+            let animation = CABasicAnimation(keyPath: "transform.rotation")
+            animation.duration = 2
+            animation.byValue = CGFloat(Double.pi * 2)
+            shipLayer.add(animation, forKey: nil)
+        }
     }
     
     fileprivate func setupPart7_1() {
@@ -86,17 +235,17 @@ extension CBAnimationViewController {
         view.layer.addSublayer(colorLayer)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let point = touches.first?.location(in: view) else { return }
-        if let _ = colorLayer.hitTest(point) {
-            colorLayer.backgroundColor = UIColor.random.cgColor
-        } else {
-            CATransaction.begin()
-            CATransaction.setAnimationDuration(4.0)
-            colorLayer.position = point
-            CATransaction.commit()
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let point = touches.first?.location(in: view) else { return }
+//        if let _ = colorLayer.hitTest(point) {
+//            colorLayer.backgroundColor = UIColor.random.cgColor
+//        } else {
+//            CATransaction.begin()
+//            CATransaction.setAnimationDuration(4.0)
+//            colorLayer.position = point
+//            CATransaction.commit()
+//        }
+//    }
     
     fileprivate func setupPart6() {
         let changeColorBtn = UIButton(type: .custom)

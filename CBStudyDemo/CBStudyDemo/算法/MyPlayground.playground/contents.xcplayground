@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Tree'/>
+        <page name='ListNode'/>
+        <page name='CharacterString'/>
+        <page name='PriorityQueue'/>
+        <page name='Sort'/>
+        <page name='StackAndQueue'/>
+        <page name='BookCode'/>
+        <page name='Hashtable'/>
+        <page name='RecursionAndDR'/>
+        <page name='Greedy'/>
+        <page name='DynamicProgramming'/>
+        <page name='Topics'/>
+        <page name='Regular'/>
+        <page name='Study'/>
+    </pages>
+</playground>
